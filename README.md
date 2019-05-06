@@ -13,3 +13,6 @@ In this you can find program and video link.
 
 ------------------------------------------------------------------------------------------------
 3. Day-3 Lecture From 9 to 11 Link: https://youtu.be/mWX5D7xIQcE
+
+-----------------------------------------------------------------------------------------------
+4. Day-3 Lecture From 9 to 11 Link: https://youtu.be/PzlMeU0efGI

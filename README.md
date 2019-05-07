@@ -16,3 +16,7 @@ In this you can find program and video link.
 
 -----------------------------------------------------------------------------------------------
 4. Day-3 Lecture From 9 to 11 Link: https://youtu.be/PzlMeU0efGI
+
+------------------------------------------------------------------------------------------------------
+
+5. Day-4 How Create JSP Project in EclipseLink: https://youtu.be/4dwoU6kE0S0

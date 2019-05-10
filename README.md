@@ -30,4 +30,4 @@ In this you can find program and video link.
 8. Day-7 How to Set Eclipse in Maven Mode Link: https://www.youtube.com/watch?v=ApZ7pftWNX4
 
 -----------------------------------------------------------------------------------------------------------------
-9. Day-7 #How to Create Hibernate Project in Eclipse Maven. Link: https://www.youtube.com/watch?v=_vt-73t1AQM&feature=youtu.be
+9. Day-7 #How to Create Hibernate Project in Eclipse Maven. Link: https://youtu.be/_vt-73t1AQM

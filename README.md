@@ -31,3 +31,11 @@ In this you can find program and video link.
 
 -----------------------------------------------------------------------------------------------------------------
 9. Day-7 #How to Create Hibernate Project in Eclipse Maven. Link: https://youtu.be/_vt-73t1AQM
+
+----------------------------------------------------------------------------------------------------------------
+10. Day -8 #Part-1 #Hibernate using Annotation in Eclipse Link: https://youtu.be/w_MTMF0C1UI
+
+---------------------------------------------------------------------------------------------------------------
+11. Day -8 #Part-2 #Hibernate using Annotation in Eclipse Link:  https://youtu.be/Sw3Edqp1Bog
+
+--------------------------------------------------------------------------------------------------------------

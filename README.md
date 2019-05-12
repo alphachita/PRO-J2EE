@@ -34,7 +34,14 @@ In this you can find program and video link.
 
 ----------------------------------------------------------------------------------------------------------------
 10. Day -8 #Part-1 #Hibernate using Annotation in Eclipse Link: https://youtu.be/cDDMha_HSQk
+
 ---------------------------------------------------------------------------------------------------------------
 11. Day -8 #Part-2 #Hibernate using Annotation in Eclipse Link:  https://youtu.be/NWhkf1foFbI
 
 --------------------------------------------------------------------------------------------------------------
+12. Day-10 #Part 1 #Hibernate Association in Maven Link:   https://youtu.be/rKl9f9ikQhY
+
+---------------------------------------------------------------------------------------------------------------------
+13. Day-10 #Part 2 #Hibernate Association in Maven Link: https://youtu.be/jSzFRJoILu8
+
+---------------------------------------------------------------------------------------------------------------------

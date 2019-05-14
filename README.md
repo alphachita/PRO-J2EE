@@ -54,6 +54,6 @@ In this you can find program and video link.
 16. Day-11 #Part 1#How to  use IOC and DI in Spring using Maven Project Link: https://youtu.be/763xrIQ3LrU
 
 -------------------------------------------------------------------------------------------------------------------------
-17. Day-11 #Part 2 #How to  use IOC and DI in Spring using Maven Project Link: 
+17. Day-11 #Part 2 #How to  use IOC and DI in Spring using Maven Project Link: https://youtu.be/IQWBaVraL8Y
 
 

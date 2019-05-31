@@ -1,0 +1,164 @@
+<div class="container-fluid">
+
+  <!-- nav bar -->
+  <div class="row bg-dark" style="height: 55px">
+        <div class="col-3 make-left beautify text-light">
+              {{title}}
+        </div>
+  </div>
+
+
+  <!-- input Block -->
+  <div class="row mt-1">
+      <div class="d-none col-md-3 d-md-block"></div>
+
+
+      <div class="col-12 col-md-6 bg-info">
+            <div class="card p-1 ">
+                <div class="card-header">
+                    INPUT 
+                </div>
+
+                <div class="card-body">
+                    <textarea [(ngModel)]="post.postValue" cols="100" rows="2" class="form-control" style="height: 100px;" ></textarea>
+                </div>
+
+                <div class="card-footer">
+                    <a (click)="postText()" class="badge badge-pill badge-primary p-2"   >POST TEXT</a>
+                    <label class="badge badge-pill badge-primary ml-1 p-2">
+                       post Image <input type="file" (change)="postImage($event)" style="display: none">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-none col-md-3 d-md-block"></div>
+  </div>
+
+
+  <!-- main container -->
+        <div class="row mt-1">
+            <div class="d-none col-md-3 d-md-block"></div>
+            <!-- card Text -->
+            <div class="col-12 col-md-6 bg-info">
+                <ng-container *ngFor="let item of postList , let itemIndex = index;">
+                  <!-- card Text -->
+                  <div *ngIf="item.postType == 'TEXT'" class="card">
+
+                    <div class="card-header">
+                      Post Text
+                    </div>
+
+                    <div class="card-body ">
+                        {{item.postValue}}
+
+                        <div class="d-flex justify-content-between">
+                          <span class="text-muted" style="font-size: small">{{item.likeCount}} Likes</span>
+                          <span class="text-muted" style="font-size: small">{{item.subscribeCount}} subscribe</span>
+                          <span class="text-muted" style="font-size: small">{{item.commentList.length}} comment</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        
+                          <div>
+                                <a (click)="likeCount(item)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">like</a>
+                                <a (click)="subscribeCount(item)" class="badge badge-pill badge-primary text-light ml-1" style="cursor: pointer">subscribe</a>
+                                
+                          </div>
+                          <div>
+                              <a (click)="deletePost(itemIndex)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">delete</a>
+                          </div>
+                    </div>
+
+                    
+                    
+                    <div class="card-footer ">
+                        <textarea [(ngModel)]="post.postComment" cols="100" rows="2" class="form-control" style="height: 100px;" ></textarea>
+                      <a (click)="addCommment(item)" class="badge badge-pill badge-primary text-light ml-1" style="cursor: pointer">comment</a>
+                    </div>
+
+
+
+                    <ng-container *ngFor="let com of item.commentList,let comindex = index;">
+                      <div class="card-footer d-flex justify-content-between">
+                        {{com}}
+                        <a (click)="deleteComment(comindex,item)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">delete</a>
+                      </div>
+                    </ng-container>
+                  
+                  </div>
+                     <!-- card image -->
+                  <div *ngIf="item.postType == 'IMAGE'" class="card">
+
+                      <div class="card-header">
+                        Post image
+                      </div>
+  
+                      <div class="card-body ">
+                          <img [src]="item.postValue"  style="height: 100%; width:100% ;" >
+  
+                          <div class="d-flex justify-content-between">
+                            <span class="text-muted" style="font-size: small">{{item.likeCount}} Likes</span>
+                            <span class="text-muted" style="font-size: small">{{item.subscribeCount}} subscribe</span>
+                            <span class="text-muted" style="font-size: small">{{item.commentList.length}} comment</span>
+                          </div>
+                      </div>
+  
+                      <div class="card-footer d-flex justify-content-between">
+                          
+                            <div>
+                                  <a (click)="likeCount(item)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">like</a>
+                                  <a (click)="subscribeCount(item)" class="badge badge-pill badge-primary text-light ml-1" style="cursor: pointer">subscribe</a>
+                                  
+                            </div>
+                            <div>
+                                <a (click)="deletePost(itemIndex)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">delete</a>
+                            </div>
+                      </div>
+  
+                      
+                      
+                      <div class="card-footer ">
+                          <textarea [(ngModel)]="post.postComment" cols="100" rows="2" class="form-control" style="height: 100px;" ></textarea>
+                        <a (click)="addCommment(item)" class="badge badge-pill badge-primary text-light ml-1" style="cursor: pointer">comment</a>
+                      </div>
+  
+  
+  
+                      <ng-container *ngFor="let com of item.commentList,let comindex = index;">
+                        <div class="card-footer d-flex justify-content-between">
+                          {{com}}
+                          <a (click)="deleteComment(comindex,item)" class="badge badge-pill badge-primary text-light" style="cursor: pointer">delete</a>
+                        </div>
+                      </ng-container>
+                    
+                    </div>
+
+                </ng-container>
+
+                <!--    NO POST -->
+                <div  *ngIf="postList.length == 0" class="card">
+
+                    <div class="card-header">
+                      HEADER
+                    </div>
+
+                    <div class="card-body ">
+                        NO POST AVAILABLE
+                    </div>
+
+                    <div class="card-footer">
+                      THANK YOU
+                    </div>
+                      
+                  </div>
+                
+            </div>
+
+            <div class="d-none col-md-3 d-md-block"></div>
+        </div>
+
+
+
+</div>

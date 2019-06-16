@@ -1,0 +1,139 @@
+***Party Controler ****
+using PartySecondMVC5WebApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+using System.Data.Entity;
+
+namespace PartySecondMVC5WebApp.Controllers
+{
+    public class PartyController : Controller
+    {
+        //Class Reference Variable Declration
+        MultiDbContext _multiDbContext;
+
+
+        // GET: Party
+        //COnstructor
+        public PartyController()
+        {
+            _multiDbContext = new MultiDbContext();
+        }
+        //Method For the Index Page
+        
+        public ActionResult Index()
+        {
+            int hour = DateTime.Now.Hour;
+            ViewBag.Greeting = hour > 12 ? $"Good Morning Sir--{DateTime.Now}" : $"Good Afternoon Sir--{DateTime.Now}";
+            return View();
+        }
+        [HttpGet]
+        public ViewResult RegistrationForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult RegistrationForm(Registration model)
+        {
+            if (ModelState.IsValid)
+            {
+                _multiDbContext.Registrations.Add(model);
+                try
+                {
+
+                    _multiDbContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                return View("Thanks", model);
+            }
+            return View();
+        }
+
+
+        public ViewResult List()
+        {
+            var result = _multiDbContext.Registrations.ToList();
+            return View(result);
+        }
+        public ActionResult Update(String Email)
+        {
+            var result = _multiDbContext.Registrations.FirstOrDefault(x => x.EmailId == Email);
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult Update(Registration model)
+        {
+            _multiDbContext.Entry<Registration>(model).State = System.Data.Entity.EntityState.Modified;
+            int reflected = _multiDbContext.SaveChanges();
+            try
+            {
+                if (reflected > 0)
+                {
+                    return RedirectToAction("List");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+    }
+}
+
+
+
+***Web Config***
+ <connectionStrings>
+     <add name="MultiDBConnection" providerName="System.Data.SqlClient" connectionString="Server=(localdb)\MSSQLLocalDB; Initial Catalog=PartyDemoDB Integrated Security=true;" />
+  </connectionStrings>
+
+***Registration****
+ <div class="form-group">
+            @Html.LabelFor(x => x.WillAllowed)
+            @Html.DropDownListFor(x => x.WillAllowed, new[]
+       {
+           new SelectListItem{Text="Yes I will Made It", Value=bool.TrueString},
+           new SelectListItem{Text="Yes I will Made It", Value=bool.FalseString}
+
+       }, "Choos One", new { @Class = "form-control" })
+
+
+            @Html.ValidationMessageFor(x => x.WillAllowed, null, new { @Class = "text-danger" })
+        </div>
+
+
+*****List*****
+<h1>List</h1>
+<table class="table table-hover table-condensed">
+    <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Age</td>
+            <td>Will Attend</td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.EmailId</td>
+    <td>@item.Phone</td>
+    <td>@item.Age</td>
+    <td>@item.WillAllowed</td>
+    <td>@Html.ActionLink("Update","Update", new { Email=item.EmailId})</td>
+</tr>
+    }

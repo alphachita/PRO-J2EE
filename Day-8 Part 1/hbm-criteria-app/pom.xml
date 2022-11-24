@@ -7,7 +7,7 @@
   <properties>
   	
   	<mysql.connector.java.version>5.1.6</mysql.connector.java.version>
-  	<hibernate.version>4.3.0.Final</hibernate.version>
+  	<hibernate.version>5.3.20.Final</hibernate.version>
   </properties>
   
   <dependencies>
